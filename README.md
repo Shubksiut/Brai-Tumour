@@ -18,8 +18,7 @@ This project aims to classify brain MRI images into two categories: normal and t
 - [Evaluation](#evaluation)
 - [Prediction](#prediction)
 - [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ### Introduction
 
@@ -44,6 +43,9 @@ This project utilizes the following libraries:
 - **seaborn**: For visualizing data distributions.
 - **tensorflow**: For building and training the neural network.
 - **opencv-python**: For image handling and preprocessing.
+- 
+  ![Brain Tumor Detection](https://github.com/Shubksiut/Brai-Tumour/assets/161926252/609cd002-35f3-468b-a20c-2dc86649cd3b)
+
 
 ### Image Paths
 
@@ -57,12 +59,19 @@ The dataset is organized into two directories:
 
 1. **Load Filenames**:
     - Load the filenames of the images from the respective directories.
+![Load filenames of images](https://i.imgur.com/X65X8bR.png)
 
 2. **Create Labels**:
     - Assign labels to the images: 0 for normal and 1 for tumor.
+![Create labels for the images](https://i.imgur.com/TnfpO0i.png)
 
-3. **Load and Preprocess Images**:
+3. **Load Visualise and Preprocess Images**:
     - Resize images to 128x128 pixels and convert to RGB.
+![Display an example image from the normal cells](https://i.imgur.com/t30440D.png)
+![Example Image: Normal Brain Cell](https://i.imgur.com/5C5fR36.png)
+![Plot the distribution of labels](https://i.imgur.com/JaRTL8O.png)
+![Distribution of Normal and Tumor Labels](https://i.imgur.com/9HL0er1.png)
+![Function to load and preprocess images](https://i.imgur.com/yDgFkqI.png)
 
 ### Model Architecture
 
@@ -74,6 +83,8 @@ The CNN model is built with the following layers:
 - **Flatten**
 - **Dense**: 128 units, activation function 'relu'
 - **Dense**: 1 unit, activation function 'sigmoid' (for binary classification)
+  ![Define the CNN model](https://i.imgur.com/ZD2b9lX.png)
+
 
 ### Training
 
@@ -84,6 +95,9 @@ The model is trained with the following configurations:
 - **Metrics**: Accuracy
 - **Epochs**: 50
 - **Validation Split**: 10%
+- ![Train the model](https://i.imgur.com/EsoomlZ.png)
+![Model Accuracy and Loss](https://i.imgur.com/wB5sTe5.png)
+
 
 ### Evaluation
 
@@ -107,21 +121,15 @@ To make a prediction on a new image:
 
 2. **Make Prediction**:
     - Use the trained model to predict the label.
+![Predict on a new image](https://i.imgur.com/uytkcYR.png)
 
 ### Results
 
 - **Training Accuracy**: Achieved high accuracy on the training set.
+  ![Evaluate the model on the test set](https://i.imgur.com/ERElKDB.png)
 - **Validation Accuracy**: Consistent performance on the validation set.
 - **Test Accuracy**: Demonstrated robust accuracy on the test set.
 
-### Contributing
-
-Contributions are welcome! Please fork the repository and submit pull requests.
-
-### License
-
-This project is licensed under the MIT License.
-
 ---
 
-Feel free to customize this README file further to fit your specific project details and structure.
+Feel free to ask anything, collaborate, or discuss. Connect with me on [LinkedIn](https://www.linkedin.com/in/shubhamkumar-singh).
