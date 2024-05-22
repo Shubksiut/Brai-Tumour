@@ -1,92 +1,127 @@
-# Brain Tumor Detection with CNN
+### README for Brain Tumor Detection Project
 
-## Project Overview
-This project uses a Convolutional Neural Network (CNN) to detect brain tumors from medical images. The dataset includes images of normal and tumor brain cells. The model is trained to classify whether an input image contains a tumor or not.
+---
 
-## Table of Contents
+## Brain Tumor Detection Using Convolutional Neural Network
+
+This project aims to classify brain MRI images into two categories: normal and tumor. The model is built using a Convolutional Neural Network (CNN) in TensorFlow and Keras.
+
+### Table of Contents
+
 - [Introduction](#introduction)
 - [Dataset](#dataset)
-- [Project Structure](#project-structure)
-- [Steps Involved](#steps-involved)
-  - [1. Data Preparation](#1-data-preparation)
-  - [2. Data Visualization](#2-data-visualization)
-  - [3. Model Building](#3-model-building)
-  - [4. Model Training](#4-model-training)
-  - [5. Model Evaluation](#5-model-evaluation)
-  - [6. Prediction](#6-prediction)
+- [Libraries Used](#libraries-used)
+- [Image Paths](#image-paths)
+- [Loading and Preprocessing Data](#loading-and-preprocessing-data)
+- [Model Architecture](#model-architecture)
+- [Training](#training)
+- [Evaluation](#evaluation)
+- [Prediction](#prediction)
 - [Results](#results)
-- [Conclusion](#conclusion)
-- [Acknowledgements](#acknowledgements)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Introduction
-The goal of this project is to create an effective model that can accurately classify brain MRI images into tumor and non-tumor categories using deep learning techniques.
+### Introduction
 
-## Dataset
-The dataset comprises images of normal and tumor brain cells. The images are divided into two directories: 
-- **Normal Cells**
-- **Tumor Cells**
+Brain tumors are life-threatening and require accurate and early detection for effective treatment. This project leverages deep learning techniques to classify brain MRI images as either normal or tumor-affected, providing a tool to assist medical professionals in diagnosis.
 
-## Project Structure
-```
-Brain-Tumor-Detection/
-│
-├── data/
-│   ├── no/             # Normal brain cell images
-│   └── yes/            # Tumor brain cell images
-│
-├── models/             # Saved models
-│
-├── notebooks/          # Jupyter notebooks for exploration and experiments
-│
-├── src/                # Source code
-│
-└── README.md           # Project overview and instructions
-```
+### Dataset
 
-## Steps Involved
+The dataset used for this project consists of MRI images categorized into two classes:
+- **Normal**: Images without a tumor.
+- **Tumor**: Images with a tumor.
 
-### 1. Data Preparation
-- **Loading Data**: Load the images from the directories.
-- **Labeling Data**: Assign labels to images (0 for normal, 1 for tumor).
-- **Preprocessing**: Resize images and convert them to a consistent format.
+### Libraries Used
 
-### 2. Data Visualization
-- **Example Images**: Display example images from each category.
-- **Label Distribution**: Visualize the distribution of normal and tumor images.
+This project utilizes the following libraries:
 
-### 3. Model Building
-- **CNN Architecture**: Define a CNN with layers for convolution, pooling, and fully connected layers.
-- **Compilation**: Compile the model with an appropriate optimizer and loss function.
+- **os**: For handling file and directory operations.
+- **numpy**: For numerical operations.
+- **pandas**: For data manipulation and analysis.
+- **matplotlib**: For plotting images and graphs.
+- **Pillow**: For image processing.
+- **scikit-learn**: For splitting the dataset.
+- **seaborn**: For visualizing data distributions.
+- **tensorflow**: For building and training the neural network.
+- **opencv-python**: For image handling and preprocessing.
 
-### 4. Model Training
-- **Training**: Train the model on the training dataset.
-- **Validation**: Validate the model on a subset of the training data.
+### Image Paths
 
-### 5. Model Evaluation
-- **Accuracy and Loss**: Plot training and validation accuracy and loss.
-- **Test Set Evaluation**: Evaluate the model on the test dataset to determine its generalization capability.
+The dataset is organized into two directories:
 
-### 6. Prediction
-- **New Image Prediction**: Predict the category of a new image using the trained model.
+- **normal_path**: Directory containing images of normal brain cells.
 
-## Results
-- **Accuracy**: The model achieved an accuracy of 88.24% on the test dataset.
-- **Visualization**: Training and validation accuracy and loss were visualized to monitor performance.
+- **tumor_path**: Directory containing images of tumor brain cells.
 
-## Conclusion
-The CNN model successfully classifies brain MRI images into tumor and non-tumor categories with high accuracy. This model can assist in the early detection of brain tumors, potentially leading to better treatment outcomes.
+### Loading and Preprocessing Data
 
-## Acknowledgements
-This project is inspired by the need for automated medical image classification to support healthcare professionals. Special thanks to the contributors of the open-source dataset used in this project.
+1. **Load Filenames**:
+    - Load the filenames of the images from the respective directories.
+
+2. **Create Labels**:
+    - Assign labels to the images: 0 for normal and 1 for tumor.
+
+3. **Load and Preprocess Images**:
+    - Resize images to 128x128 pixels and convert to RGB.
+
+### Model Architecture
+
+The CNN model is built with the following layers:
+
+- **InputLayer**: Input shape of (128, 128, 3)
+- **Conv2D**: 64 filters, kernel size of (3, 3), activation function 'relu'
+- **MaxPooling2D**: Pool size of (2, 2)
+- **Flatten**
+- **Dense**: 128 units, activation function 'relu'
+- **Dense**: 1 unit, activation function 'sigmoid' (for binary classification)
+
+### Training
+
+The model is trained with the following configurations:
+
+- **Optimizer**: Adam
+- **Loss Function**: Binary Crossentropy
+- **Metrics**: Accuracy
+- **Epochs**: 50
+- **Validation Split**: 10%
+
+### Evaluation
+
+To evaluate the model on the test set:
+
+1. **Split the Dataset**:
+    - Split the dataset into training and testing sets.
+
+2. **Normalize the Pixel Values**:
+    - Normalize pixel values to be between 0 and 1.
+
+3. **Evaluate the Model**:
+    - Evaluate the model on the test set.
+
+### Prediction
+
+To make a prediction on a new image:
+
+1. **Load and Preprocess the Image**:
+    - Resize and normalize the image.
+
+2. **Make Prediction**:
+    - Use the trained model to predict the label.
+
+### Results
+
+- **Training Accuracy**: Achieved high accuracy on the training set.
+- **Validation Accuracy**: Consistent performance on the validation set.
+- **Test Accuracy**: Demonstrated robust accuracy on the test set.
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and submit pull requests.
+
+### License
+
+This project is licensed under the MIT License.
 
 ---
 
-Feel free to explore the code, experiment with the dataset, and contribute to improving the model! For any questions or suggestions, please open an issue or contact the project maintainers.
-
----
-
-**Maintainer**: Shubhamkumar Singh
-
----
-
-Thank you for visiting! 🌟
+Feel free to customize this README file further to fit your specific project details and structure.
